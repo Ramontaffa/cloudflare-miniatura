@@ -1,0 +1,12 @@
+{
+  "cenario": "valido",
+  "porta_aberta": true,
+  "resposta_saude": {
+    "status": 200,
+    "corpo": "{\"ok\":true}"
+  },
+  "codigo_saida": null,
+  "sinal_saida": "SIGTERM",
+  "timeout": false,
+  "observacao": "Processo encerrado pelo teste após a requisição."
+}

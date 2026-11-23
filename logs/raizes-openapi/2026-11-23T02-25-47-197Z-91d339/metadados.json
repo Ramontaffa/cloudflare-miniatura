@@ -1,0 +1,9 @@
+{
+  "data_utc": "2026-11-23T02:25:47.214Z",
+  "backend_local": "C:\\Users\\rtaff\\Desktop\\CESAR\\Período_26.2\\WEB\\Raizes-PE\\backend",
+  "node": "v22.23.4",
+  "teste": "app Express copiado; porta efêmera; sem acesso intencional a banco",
+  "sha256_openapi": "32117554f2d7bb607507d099afe9a94562671f3ca8f9f819e4dfa3bfa63a3e5d",
+  "sha256_app": "587ba2ca8e4ea5ac3b5f027cd76b281f95ec87dac2c06bc2c6fdfdebf84daffc",
+  "sha256_leitor": "26232edd8154c604bef5fc3f7f0854bee80368a9ae35d8144b1a2ffe278cf60a"
+}

@@ -1,0 +1,35 @@
+services:
+  gerador:
+    image: python:3.12-alpine
+    working_dir: /app
+    command: python gerador.py
+    volumes:
+      - ./src:/app:ro
+      - configuracao:/config
+    networks: [experimento]
+  consumidor:
+    image: python:3.12-alpine
+    working_dir: /app
+    command: python consumidor.py
+    environment:
+      MITIGACAO: ${MITIGACAO:-0}
+    volumes:
+      - ./src:/app:ro
+      - configuracao:/config:ro
+    networks: [experimento]
+  cliente:
+    image: python:3.12-alpine
+    working_dir: /app
+    command: python cliente.py
+    environment:
+      CENARIO: ${CENARIO:-sem-mitigacao}
+      EXECUCAO: ${EXECUCAO:-manual}
+    volumes:
+      - ./src:/app:ro
+      - ./logs:/logs
+    depends_on: [gerador, consumidor]
+    networks: [experimento]
+networks:
+  experimento:
+volumes:
+  configuracao:

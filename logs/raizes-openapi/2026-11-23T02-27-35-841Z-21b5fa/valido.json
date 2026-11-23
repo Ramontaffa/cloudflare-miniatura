@@ -1,0 +1,9 @@
+{
+  "cenario": "valido",
+  "porta_aberta": false,
+  "resposta_saude": null,
+  "codigo_saida": null,
+  "sinal_saida": "SIGTERM",
+  "timeout": true,
+  "observacao": "Processo terminou antes de abrir a porta ou expirou."
+}

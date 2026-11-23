@@ -1,0 +1,11 @@
+{
+  "cenario": "com-mitigacao",
+  "execucao": "20261122-224825-0ebec6dc",
+  "total_requisicoes": 130,
+  "requisicoes_com_erro": 0,
+  "percentual_erros": 0.0,
+  "tempo_ate_falha_s": null,
+  "tempo_ate_recuperacao_s": null,
+  "recuperacao_confirmada": null,
+  "criterio_recuperacao": "primeira de tres requisicoes consecutivas bem-sucedidas apos restauracao"
+}

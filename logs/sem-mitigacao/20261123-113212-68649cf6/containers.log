@@ -1,0 +1,147 @@
+﻿gerador-1     | Publicada configuracao com 5 entradas
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:22] "GET / HTTP/1.1" 200 -
+gerador-1     | Publicada configuracao com 12 entradas
+gerador-1     | 192.168.0.4 - - [23/Nov/2026 14:32:25] "POST /invalida HTTP/1.1" 200 -
+cliente-1     | {
+gerador-1     | 192.168.0.4 - - [23/Nov/2026 14:32:41] "POST /valida HTTP/1.1" 200 -
+gerador-1     | Publicada configuracao com 5 entradas
+cliente-1     |   "cenario": "sem-mitigacao",
+cliente-1     |   "execucao": "20261123-113212-68649cf6",
+cliente-1     |   "total_requisicoes": 130,
+cliente-1     |   "requisicoes_com_erro": 80,
+cliente-1     |   "percentual_erros": 61.54,
+cliente-1     |   "tempo_ate_falha_s": 0.057252,
+cliente-1     |   "tempo_ate_recuperacao_s": 0.042365,
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:22] "GET / HTTP/1.1" 200 -
+cliente-1     |   "recuperacao_confirmada": true,
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:22] "GET / HTTP/1.1" 200 -
+cliente-1     |   "criterio_recuperacao": "primeira de tres requisicoes consecutivas bem-sucedidas apos restauracao"
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:22] "GET / HTTP/1.1" 200 -
+cliente-1     | }
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:22] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:22] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:22] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:23] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:23] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:23] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:23] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:24] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:24] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:24] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:24] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:24] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:24] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:24] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:25] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:25] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:25] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:25] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:25] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:26] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:26] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:26] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:26] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:26] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:26] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:27] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:27] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:27] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:27] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:27] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:27] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:27] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:28] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:28] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:28] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:28] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:28] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:28] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:28] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:29] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:29] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:29] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:29] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:29] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:29] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:30] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:30] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:30] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:30] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:31] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:31] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:31] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:32] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:32] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:32] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:32] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:33] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:33] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:33] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:33] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:34] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:34] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:34] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:34] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:35] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:35] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:35] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:35] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:35] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:35] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:36] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:36] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:36] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:36] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:36] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:37] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:37] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:37] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:37] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:37] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:37] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:37] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:38] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:38] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:38] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:38] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:38] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:38] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:39] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:39] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:39] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:39] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:39] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:39] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:40] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:40] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:40] "GET / HTTP/1.1" 503 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:41] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:41] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:41] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:41] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:41] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:41] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:42] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:42] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:42] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:42] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:42] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:43] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:43] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:43] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:43] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:43] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:43] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:44] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:44] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:44] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:44] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:44] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:45] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:45] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:45] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:45] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:45] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:45] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:45] "GET / HTTP/1.1" 200 -
+consumidor-1  | 192.168.0.4 - - [23/Nov/2026 14:32:46] "GET / HTTP/1.1" 200 -

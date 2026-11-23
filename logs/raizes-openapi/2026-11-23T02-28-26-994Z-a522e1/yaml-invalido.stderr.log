@@ -1,0 +1,26 @@
+C:\Users\rtaff\Desktop\CESAR\Período_26.2\WEB\Raizes-PE\backend\node_modules\yaml\dist\public-api.js:74
+            throw doc.errors[0];
+            ^
+
+YAMLParseError: Flow sequence in block collection must be sufficiently indented and end with a ] at line 2, column 1:
+
+openapi: [
+
+^
+
+    at Composer.onError (C:\Users\rtaff\Desktop\CESAR\Período_26.2\WEB\Raizes-PE\backend\node_modules\yaml\dist\compose\composer.js:70:34)
+    at Object.resolveFlowCollection (C:\Users\rtaff\Desktop\CESAR\Período_26.2\WEB\Raizes-PE\backend\node_modules\yaml\dist\compose\resolve-flow-collection.js:189:9)
+    at resolveCollection (C:\Users\rtaff\Desktop\CESAR\Período_26.2\WEB\Raizes-PE\backend\node_modules\yaml\dist\compose\compose-collection.js:16:37)
+    at Object.composeCollection (C:\Users\rtaff\Desktop\CESAR\Período_26.2\WEB\Raizes-PE\backend\node_modules\yaml\dist\compose\compose-collection.js:59:16)
+    at composeNode (C:\Users\rtaff\Desktop\CESAR\Período_26.2\WEB\Raizes-PE\backend\node_modules\yaml\dist\compose\compose-node.js:34:42)
+    at Object.resolveBlockMap (C:\Users\rtaff\Desktop\CESAR\Período_26.2\WEB\Raizes-PE\backend\node_modules\yaml\dist\compose\resolve-block-map.js:85:19)
+    at resolveCollection (C:\Users\rtaff\Desktop\CESAR\Período_26.2\WEB\Raizes-PE\backend\node_modules\yaml\dist\compose\compose-collection.js:13:27)
+    at Object.composeCollection (C:\Users\rtaff\Desktop\CESAR\Período_26.2\WEB\Raizes-PE\backend\node_modules\yaml\dist\compose\compose-collection.js:59:16)
+    at Object.composeNode (C:\Users\rtaff\Desktop\CESAR\Período_26.2\WEB\Raizes-PE\backend\node_modules\yaml\dist\compose\compose-node.js:34:42)
+    at Object.composeDoc (C:\Users\rtaff\Desktop\CESAR\Período_26.2\WEB\Raizes-PE\backend\node_modules\yaml\dist\compose\compose-doc.js:35:23) {
+  code: 'BAD_INDENT',
+  pos: [ 11, 12 ],
+  linePos: [ { line: 2, col: 1 }, { line: 2, col: 2 } ]
+}
+
+Node.js v22.23.4

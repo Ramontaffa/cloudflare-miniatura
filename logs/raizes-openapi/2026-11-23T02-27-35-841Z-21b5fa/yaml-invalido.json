@@ -1,0 +1,9 @@
+{
+  "cenario": "yaml-invalido",
+  "porta_aberta": false,
+  "resposta_saude": null,
+  "codigo_saida": 1,
+  "sinal_saida": null,
+  "timeout": false,
+  "observacao": "Processo terminou antes de abrir a porta ou expirou."
+}
