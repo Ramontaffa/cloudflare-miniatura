@@ -1,3 +1,4 @@
+import reportlab
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_CENTER
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
@@ -8,9 +9,10 @@ from reportlab.pdfbase.ttfonts import TTFont
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent
-SAIDA = BASE / 'laudo-cloudflare-rascunho.pdf'
-pdfmetrics.registerFont(TTFont('Arial', r'C:\Windows\Fonts\arial.ttf'))
-pdfmetrics.registerFont(TTFont('Arial-Bold', r'C:\Windows\Fonts\arialbd.ttf'))
+SAIDA = BASE / 'laudo-cloudflare.pdf'
+fontes = Path(reportlab.__file__).parent / 'fonts'
+pdfmetrics.registerFont(TTFont('Arial', str(fontes / 'Vera.ttf')))
+pdfmetrics.registerFont(TTFont('Arial-Bold', str(fontes / 'VeraBd.ttf')))
 pdfmetrics.registerFontFamily('Arial', normal='Arial', bold='Arial-Bold')
 styles = getSampleStyleSheet()
 styles.add(ParagraphStyle(name='TituloLaudo', fontName='Arial-Bold', fontSize=15, leading=19, spaceAfter=9))
@@ -33,10 +35,10 @@ def tabela(rows, widths):
 
 story = []
 story += [Paragraph('Laudo técnico - incidente da Cloudflare', styles['TituloLaudo']),
- P('Disciplina: Fundamentos de Computação Concorrente, Paralela e Distribuída<br/>Integrantes: Ramon Taffarel Guimarães e Pedro Henrique Cavalcanti e Silva<br/>Repositório do experimento: <link href="https://github.com/Ramontaffa/cloudflare-miniatura" color="#205a88">github.com/Ramontaffa/cloudflare-miniatura</link> (privado; arquivos ainda não enviados).'),
+ P('Disciplina: Fundamentos de Computação Concorrente, Paralela e Distribuída<br/>Integrantes: Ramon Taffarel Guimarães e Pedro Henrique Cavalcanti e Silva<br/>Repositório do experimento: <link href="https://github.com/Ramontaffa/cloudflare-miniatura" color="#205a88">github.com/Ramontaffa/cloudflare-miniatura</link>.'),
  S('A. Mecanismo e conceito'),
  P('<b>Mecanismo em uma frase:</b> uma mudança no acesso a metadados levou à geração e distribuição de uma configuração com entradas duplicadas que ultrapassou o limite do módulo de Bot Management, causando erros em serviços dependentes do proxy [1].'),
- P('O conceito principal é <b>acoplamento</b>: a disponibilidade de serviços que dependiam do proxy ficou ligada ao processamento correto de uma configuração compartilhada. A falha de uma parte se refletiu em outros produtos, incluindo Workers KV e Access. É um efeito em cascata, não uma condição de corrida [1, seções “How Cloudflare processes requests...” e “Other impact...”].'),
+ P('O conceito principal é <b>efeito cascata</b>. A configuração compartilhada ultrapassou o limite do módulo do proxy, e a falha afetou produtos que dependiam dele, incluindo Workers KV e Access. O acoplamento desses produtos ao proxy explica a propagação do impacto [1, seções “How Cloudflare processes requests...” e “Other impact...”].'),
  S('Linha do tempo do caso real'),
  P('Horários em UTC, conforme a tabela ao final do relato oficial [1].'),
  tabela([['Horário','Evento e localização no artigo'],
@@ -54,7 +56,7 @@ story += [Paragraph('Laudo técnico - incidente da Cloudflare', styles['TituloLa
  ['gerador','Publica configuração válida ou inválida.','Processo de geração e distribuição do arquivo de features.'],
  ['consumidor','Lê o arquivo e responde às requisições.','Módulo do proxy dependente da configuração.'],
  ['cliente','Aciona mudanças, envia requisições e registra respostas.','Tráfego que depende do serviço afetado.']], [3*cm,6.5*cm,7.7*cm]),
- Spacer(1,8),P('Na miniatura, os valores configurados são 5 entradas válidas, 12 entradas com duplicatas e limite de 10. São escolhas didáticas, não valores atribuídos à Cloudflare. O artigo explica que o limite real era de 200 features [1, seção “Memory preallocation”].'),
+ Spacer(1,8),P('Na miniatura, o gerador publicou uma configuração válida com 5 entradas e uma versão com 12 entradas, incluindo duplicatas, que excedeu o limite do consumidor. As publicações foram registradas em [L1a], linhas 1 e 3. O limite no caso real era de 200 features [1, seção “Memory preallocation”].'),
  S('O que não foi reproduzido'),
  tabela([['Limitação','Efeito sobre as conclusões'],
  ['Um único consumidor e nenhum rollout global.','Não permite estimar alcance geográfico nem quantos clientes seriam afetados.'],
@@ -62,18 +64,20 @@ story += [Paragraph('Laudo técnico - incidente da Cloudflare', styles['TituloLa
  ['O serviço devolve 503 de forma simulada; não implementa o proxy real ou seus produtos dependentes.','Não representa diferenças entre versões do proxy nem todos os tipos de impacto observados.'],
  ['Carga sequencial e pequena, sem distribuição real.','Tempos e percentual de erro dependem do roteiro local e não estimam os do incidente real.']], [7.8*cm,9.4*cm]),
  PageBreak(),S('C. Experimento e evidências'),
- P('Após a prontidão, foram enviadas 20 requisições com configuração válida, 80 com configuração inválida e 30 após sua restauração, com intervalo de 0,1 s entre chamadas, além do tempo das próprias chamadas. O primeiro cenário devolve 503 quando o arquivo excede o limite; no segundo, a versão válida permanece em memória.'),
+ P('Após a prontidão, foram enviadas 20 requisições com configuração válida, 80 com configuração inválida e 30 após sua restauração, com uma pausa programada entre as chamadas [L1, L2]. O primeiro cenário devolve 503 quando o arquivo excede o limite; no segundo, a versão válida permanece em memória.'),
  tabela([['Métrica','Sem mitigação [L1]','Com mitigação [L2]'],
  ['Requisições / erros','130 / 80','130 / 0'],
  ['Erros no total','61,54% (80 / 130)','0% (0 / 130)'],
- ['Tempo até primeira falha','0,057252 s','Não observada na janela'],
- ['Tempo até recuperação','0,042365 s','Não aplicável: sem falha observada']], [6.0*cm,5.6*cm,5.6*cm]),
- Spacer(1,7),P('O percentual divide respostas fora de 2xx e falhas de conexão pelo total medido nas três fases. Os tempos começam quando o cliente recebe a confirmação da mudança: o de falha termina no primeiro erro; o de recuperação, na primeira de três respostas consecutivas bem-sucedidas após a restauração. A frequência de amostragem e o tempo de cada chamada limitam a precisão. Os tempos não medem propagação real.'),
+ ['Da injeção até a primeira falha','0,057252 s (linhas 22–23)','Não observada na janela'],
+ ['Da primeira falha até a recuperação','15,428171 s (linhas 23 e 104)','Não aplicável: sem falha observada'],
+ ['Da restauração até a recuperação','0,042365 s (linhas 103–104)','Não aplicável: sem falha observada']], [6.0*cm,5.6*cm,5.6*cm]),
+ Spacer(1,7),P('A taxa inclui respostas fora de 2xx e falhas de conexão nas três fases. A injeção e a restauração são registradas quando o cliente recebe a confirmação do gerador. A recuperação é marcada pela primeira de três respostas consecutivas bem-sucedidas após a restauração. Os tempos refletem o roteiro e a frequência das sondagens no laboratório.'),
  P('Na execução sem mitigação, as 80 respostas durante a configuração inválida foram 503; as demais foram 200 [L1]. Com mitigação, todas as respostas foram 200, inclusive durante a fase inválida [L2]. O log do consumidor registra a rejeição da configuração [L3].'),
  P('O comportamento qualitativo é compatível com o mecanismo descrito no artigo: uma configuração maior do que o limite afetou o processamento, e uma versão válida ajudou a recuperar o serviço. No caso real, a configuração alternou entre versões válidas e inválidas durante parte do incidente e a recuperação global envolveu outros sistemas; nossa miniatura não reproduz essas oscilações nem a escala do evento [1, “The outage”]. Os percentuais não são comparáveis diretamente.'),
  P('<b>Teste adicional:</b> formulamos a hipótese de que a mitigação continuaria atendendo depois do reinício do consumidor, mesmo com a configuração inválida publicada. Antes do reinício, a resposta foi 200; após ele, foi 503. Quando a configuração válida foi restaurada, a resposta voltou a 200 [L5]. A hipótese não se confirmou: o código guarda a última versão válida apenas na memória, que é perdida quando o processo reinicia. O teste mostra uma limitação da mitigação, sem representar um novo incidente na Cloudflare.'),
  S('Arquivos de evidência'),
  small('[L1] logs/sem-mitigacao/20261123-113212-68649cf6/eventos.jsonl e resumo.json.'),
+ small('[L1a] logs/sem-mitigacao/20261123-113212-68649cf6/containers.log.'),
  small('[L2] logs/com-mitigacao/20261123-113305-61675713/eventos.jsonl e resumo.json.'),
  small('[L3] logs/com-mitigacao/20261123-113305-61675713/containers.log.'),
  small('[L5] logs/reinicio-mitigacao/20261123T143128Z-f6a67e76/eventos.jsonl e containers.log.'),
@@ -87,9 +91,7 @@ story += [Paragraph('Laudo técnico - incidente da Cloudflare', styles['TituloLa
  small('[L4] logs/raizes-openapi/2026-11-23T02-28-26-994Z-a522e1/: valido.json, ausente.json, yaml-invalido.json e os respectivos arquivos .stdout.log e .stderr.log. Metadados e hashes estão em metadados.json.'),
  S('Referência'),
  P('[1] CLOUDFLARE. <i>Cloudflare outage on November 18, 2025.</i> 18 nov. 2025. Disponível em: <link href="https://blog.cloudflare.com/18-november-2025-outage/" color="#205a88">blog.cloudflare.com/18-november-2025-outage/</link>.'),
- P('[2] RAÍZES PE, cópia local na branch main, commit base fae222b, com alterações locais. Arquivos: backend/src/config/openapi.ts e backend/src/app.ts. Repositório: <link href="https://github.com/brunosm26/Raizes-PE" color="#205a88">github.com/brunosm26/Raizes-PE</link>. A cópia local não comprova o estado em produção.'),
- S('Pendências antes da entrega'),
- P('Enviar os arquivos ao repositório e garantir que o professor tenha acesso; revisar o IA.md e os resultados com a equipe. O documento não deve ser entregue como versão final enquanto essas etapas estiverem pendentes.')]
+ P('[2] RAÍZES PE, cópia local na branch main, commit base fae222b, com alterações locais. Arquivos: backend/src/config/openapi.ts e backend/src/app.ts. Repositório: <link href="https://github.com/brunosm26/Raizes-PE" color="#205a88">github.com/brunosm26/Raizes-PE</link>. A cópia local não comprova o estado em produção.')]
 
 def rodape(canvas, doc):
     canvas.setFont('Arial', 8)

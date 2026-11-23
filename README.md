@@ -2,6 +2,8 @@
 
 Experimento didático sobre a distribuição de uma configuração que ultrapassa o limite do consumidor. O caso real está descrito no [relato oficial de 18/11/2025](https://blog.cloudflare.com/18-november-2025-outage/). A miniatura não representa a infraestrutura completa da Cloudflare.
 
+O relatório atualizado está em [laudo-cloudflare.pdf](laudo-cloudflare.pdf). O arquivo `laudo-cloudflare-rascunho.pdf` é uma versão anterior e não deve ser usado para entrega.
+
 ## Componentes
 
 - **gerador**: publica um arquivo válido com 5 entradas e, quando solicitado, um arquivo com 12 entradas, incluindo duplicatas.
